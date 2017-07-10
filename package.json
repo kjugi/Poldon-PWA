@@ -1,0 +1,10 @@
+{
+  "name": "poldon-pwa",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "nuxt": "^1.0.0-alpha.5"
+  }
+}
