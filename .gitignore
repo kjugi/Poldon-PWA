@@ -1,2 +1,7 @@
 //dependencies
-/node_modules/*
+/node_modules
+
+//core nuxt
+/.nuxt/
+
+package-lock.json
