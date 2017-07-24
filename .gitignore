@@ -1,7 +1,5 @@
-//dependencies
 /node_modules
-
-//core nuxt
-/.nuxt/
+.*
+!/.gitignore
 
 package-lock.json
