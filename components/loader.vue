@@ -1,20 +1,21 @@
 <template>
-    <svg class="spinner" 
-         :class="{ show: show }" 
-         width="44px" 
-         height="44px" 
-         viewBox="0 0 44 44"
-    >
-        <circle class="path" 
-                fill="none" 
-                stroke-width="4" 
-                stroke-linecap="round" 
-                cx="22" 
-                cy="22" 
-                r="20"
+    <div class="block" :class="{ show: show }">
+        <svg class="spinner" 
+            width="44px" 
+            height="44px" 
+            viewBox="0 0 44 44"
         >
-        </circle>
-    </svg>
+            <circle class="path" 
+                    fill="none" 
+                    stroke-width="4" 
+                    stroke-linecap="round" 
+                    cx="22" 
+                    cy="22" 
+                    r="20"
+            >
+            </circle>
+        </svg>
+    </div>
 </template>
 
 <script>
@@ -26,15 +27,24 @@ export default {
 </script>
 
 <style>
-.spinner {
-    opacity: 0;
-    transition: opacity 0.3 ease;
-    animation: rotate 1.5s linear infinite;
-    animation-play-state: paused;
+.block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    display: none;
 }
 
-.spinner.show {
-    opacity: 1;
+.block.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    animation: rotate 1.5s linear infinite;
     animation-play-state: running;
 }
 
