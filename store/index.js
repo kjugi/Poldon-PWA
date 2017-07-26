@@ -42,11 +42,11 @@ const store = () => new Vuex.Store({
       state.postsArray = [];
 
       //add posts to array
-      state.postsArray = posts;
+      return state.postsArray = posts;
     }
   },
   actions: {
-    async nuxtServerInit({ state, commit }) {
+    async actionGetPost({ state, commit }) {
       const postsPerPage = state.postsPerPage,
             page = state.page,
             data = await api.getPosts(page, postsPerPage);
