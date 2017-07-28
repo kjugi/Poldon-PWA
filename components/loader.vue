@@ -15,13 +15,17 @@
             >
             </circle>
         </svg>
+        <p class="block__error" :class="{ showError: showError }">
+            Something goes wrong with loading data :/
+        </p>
     </div>
 </template>
 
 <script>
 export default {
   props: [
-    'show'
+    'show',
+    'showError'
   ],
 }
 </script>
@@ -39,8 +43,19 @@ export default {
 
 .block.show {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.block__error {
+    color: #c08826;
+    font-size: 14px;
+    display: none;
+}
+
+.block__error.showError {
+    display: block;
 }
 
 .spinner {

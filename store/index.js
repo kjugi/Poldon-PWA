@@ -12,12 +12,7 @@ const store = () => new Vuex.Store({
       '20', 
       '30', 
       '40', 
-      '50', 
-      '60', 
-      '70', 
-      '80', 
-      '90', 
-      '100'
+      '50'
     ]
   },
   mutations: {
@@ -51,7 +46,12 @@ const store = () => new Vuex.Store({
             page = state.page,
             data = await api.getPosts(page, postsPerPage);
 
-      commit('addPosts', data);
+      if(data) {
+        commit('addPosts', data);
+      }
+      else {
+        commit('addPosts', false);
+      }
     }
   },
 })

@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <loader :show="loading"/>    
+    <loader :show="loading" :showError="error" />  
   </div>
 </template>
 
@@ -61,10 +61,16 @@ export default {
     actualTotalPages() {
       return this.$store.state.totalPages;
     },
-    posts: function(){
-      this.loading = false;
-      return this.$store.state.postsArray;
-    },
+    posts() {
+      if(this.$store.state.postsArray) {
+        this.loading = false;        
+        clearTimeout(this.showTimeoutError);        
+        return this.$store.state.postsArray;
+      }
+      else {
+        return this.error = true;
+      }
+    }
   },
   methods: {
     changeVariantPerPage(event) {
@@ -92,7 +98,7 @@ export default {
       this.loading = true;
       this.$store.commit('prevPage');
       this.$store.dispatch('actionGetPost');
-    }
+    },
   },
   fetch({ store, params }) {
     return axios.get(`http://poldon.pl/wp-json/wp/v2/posts?page=${store.state.page}&per_page=${store.state.postsPerPage}`)
@@ -101,18 +107,28 @@ export default {
 
         store.commit('addPosts', response.data);
         store.commit('setTotalPages', numberOfPages);
+      })
+      .catch((error) => {
+        const response = false;
+        store.commit('addPosts', response);        
       });
   },
   data() {
     return {
-      loading: true
+      loading: true,
+      error: false,
     }
   },
   beforeMount() {
     return this.loading = true;
   },
   mounted() {
-    return this.loading = false;
+    if(this.error) {
+      return this.loading = true;
+    }
+    else {
+      return this.loading = false;
+    }
   },
 }
 </script>
