@@ -15,5 +15,11 @@ module.exports = {
     vendor: [
       'axios'
     ]
-  }
+  },
+  css: [
+    {
+      src: '~assets/main.scss',
+      lang: 'scss'
+    }
+  ]
 }
