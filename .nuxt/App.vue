@@ -8,10 +8,12 @@
 <script>
 import NuxtLoading from './components/nuxt-loading.vue'
 
+import '../assets/main.scss'
+
 
 let layouts = {
 
-  "_default": () => import('/Users/mac/www/poldonPWA/node_modules/nuxt/dist/app/layouts/default.vue'  /* webpackChunkName: "layouts/default" */)
+  "_default": () => import('./layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m)
 
 }
 
@@ -50,7 +52,6 @@ export default {
         if (this.$nuxt) {
           return this.$nuxt.error({ statusCode: 500, message: e.message })
         }
-        console.error(e)
       })
     }
   },

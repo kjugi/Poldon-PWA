@@ -1,12 +1,28 @@
-'use strict'
 import Vue from 'vue'
 
 const noopData = () => ({})
 
+// window.onNuxtReady(() => console.log('Ready')) hook
+// Useful for jsdom testing or plugins (https://github.com/tmpvar/jsdom#dealing-with-asynchronous-script-loading)
+if (process.browser) {
+  window._nuxtReadyCbs = []
+  window.onNuxtReady = function (cb) {
+    window._nuxtReadyCbs.push(cb)
+  }
+}
+
 export function applyAsyncData (Component, asyncData = {}) {
   const ComponentData = Component.options.data || noopData
+  // Prevent calling this method for each request on SSR context
+  if(!asyncData && Component.options.hasAsyncData) {
+    return
+  }
+  Component.options.hasAsyncData = true
   Component.options.data = function () {
     const data =  ComponentData.call(this)
+    if(this.$ssrContext) {
+      asyncData = this.$ssrContext.asyncData[Component.options.name]
+    }
     return { ...data, ...asyncData }
   }
   if (Component._Ctor && Component._Ctor.options) {
@@ -59,7 +75,7 @@ export function getContext (context, app) {
     isClient: !!context.isClient,
     isDev: true,
     app: app,
-    
+    store: context.store,
     route: (context.to ? context.to : context.route),
     payload: context.payload,
     error: context.error,
@@ -87,6 +103,10 @@ export function getContext (context, app) {
   }
   if (context.req) ctx.req = context.req
   if (context.res) ctx.res = context.res
+  if (context.from) ctx.from = context.from
+  if (ctx.isServer && context.beforeRenderFns) {
+    ctx.beforeNuxtRender = (fn) => context.beforeRenderFns.push(fn)
+  }
   return ctx
 }
 
