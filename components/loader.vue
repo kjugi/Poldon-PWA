@@ -15,6 +15,7 @@
             >
             </circle>
         </svg>
+        
         <p class="block__error" :class="{ showError: showError }">
             Something goes wrong with loading data :/
         </p>
