@@ -1,3 +1,5 @@
+@import 'modules/variables';
+
 body {
     margin: 0;
     font-family: sans-serif, Arial;
@@ -6,5 +8,14 @@ body {
         max-width: 800px;
         margin: 0px auto;
         position: relative;
+    }
+
+    .header {
+        background-color: $primary-color;
+        padding: $base-padding;
+
+        &__logo {
+            max-width: 48px;
+        }
     }
 }
