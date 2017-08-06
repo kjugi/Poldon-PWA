@@ -1,7 +1,7 @@
 <template>
-    <div class="footer">
+    <footer class="container footer">
         <p>
             Created by FK
         </p>
-    </div>
+    </footer>
 </template>

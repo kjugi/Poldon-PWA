@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
+  <div>
     <toolbar/>
     <nuxt/>
+    <bottombar/>
   </div>
 </template>
 
