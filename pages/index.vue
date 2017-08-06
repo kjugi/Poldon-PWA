@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Poldon Posts</h1>
+    <h1>Posts</h1>
 
     <div class="settings">
       <div class="settings__row">
