@@ -8,6 +8,8 @@
 body {
     margin: 0;
     font-family: sans-serif, Arial;
+    font-size: $font-size-standard;
+    line-height: $line-height-standard;
 
     h1,
     h2,
@@ -84,6 +86,48 @@ body {
 
         &:hover {
             text-decoration: none;
+        }
+    }
+
+    .tiled-gallery {
+        clear: both;
+        margin: 0 0 $base-margin;
+        overflow: hidden;
+
+        &-item {
+            float: left;
+            margin: 0;
+            position: relative;
+            width: inherit;
+
+            img {
+                background: 0 0;
+                border: 0;
+                box-shadow: none;
+                max-width: 100%;
+                padding: 0;
+                vertical-align: middle;
+            }
+        }
+
+        &-caption {
+            position: absolute;
+            background: rgba($white, 0.6);
+            color: $secondary-color;
+            padding: 5px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            font-size: $font-size-gallery;
+        }
+
+        .gallery-row {
+            overflow: hidden;
+        }
+
+        .gallery-group {
+            float: left;
+            position: relative;
         }
     }
 }
