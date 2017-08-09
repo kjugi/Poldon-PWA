@@ -1,4 +1,7 @@
-$primary-color: #313131 !default;
+$primary-color  : #313131 !default;
+$secondary-color: #666 !default;
+$hover-color    : #c08826 !default;
 
-$base-padding: 15px !default;
-$base-margin: 15px !default;
+$base-padding   : 15px !default;
+$base-margin    : 15px !default;
+$base-transition: all .2s ease-in !default;

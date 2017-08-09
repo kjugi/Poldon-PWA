@@ -1,7 +1,7 @@
 <template>
-    <footer class="container footer">
-        <p>
-            Created by FK
-        </p>
-    </footer>
+  <footer class="footer">
+    <span>
+      Created by FK
+    </span>
+  </footer>
 </template>

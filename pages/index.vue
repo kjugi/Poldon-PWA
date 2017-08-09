@@ -1,31 +1,31 @@
 <template>
   <div class="container">
-    <h1>Posts</h1>
+    <h1>Posty</h1>
 
     <div class="settings">
       <div class="settings__row">
-        <a href="#" class="settings__navigation" @click="setPrevPage()">
-          << Prev
+        <a href="#" class="link settings__navigation" @click="setPrevPage()">
+          << Poprzednia strona
         </a>
 
         <span class="settings__text">
-          Page: {{ $store.state.page }}
-          of
+          Strona: {{ $store.state.page }}
+          z
           {{ actualTotalPages }}
         </span>
 
-        <a href="#" class="settings__navigation" @click="setNextPage()">
-          Next >>
+        <a href="#" class="link settings__navigation" @click="setNextPage()">
+          Nastepna strona >>
         </a>
 
         <span class="settings__text">
-          Per page: {{ $store.state.postsPerPage }}
+          Postów na stronie: {{ $store.state.postsPerPage }}
         </span>
       </div>
 
       <ul class="list settings__row">
         <li v-for="variant in variantsPostsPerPage" class="list__item">
-          <a href="#" class="list__link" @click="changeVariantPerPage">
+          <a href="#" class="link list__link" @click="changeVariantPerPage">
             {{ variant }}
           </a>
         </li>
@@ -34,11 +34,11 @@
 
     <div class="posts">
       <div v-if="!loading" v-for="post in posts" class="post">
-        <a :href="'/post/' + post.id" class="post__link">
+        <a :href="'/post/' + post.id" class="link post__link">
           <h2 class="post__title" v-html="post.title.rendered"/>
         </a>
 
-        <p class="post__excerpt" v-html="post.excerpt.rendered"/>
+        <div class="post__excerpt" v-html="post.excerpt.rendered"/>
       </div>
     </div>
 

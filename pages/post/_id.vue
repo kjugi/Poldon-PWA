@@ -1,7 +1,7 @@
 <template>
-    <div class="post">
-      <h1 v-html="post.title.rendered"></h1>
-      <p v-html="post.content.rendered"></p>
+    <div class="post container">
+      <h1 class="post__title" v-html="post.title.rendered"></h1>
+      <div class="post__content" v-html="post.content.rendered"/>
     </div>
 </template>
 

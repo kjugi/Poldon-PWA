@@ -1,17 +1,15 @@
 <template>
   <header class="header">
-    <div class="container">
-      <router-link to="/" class="header__link">
-        <img src="logo.png" class="header__logo" />
-      </router-link>
+    <router-link to="/" class="header__link">
+      <img src="/logo.png" class="header__logo" />
+    </router-link>
 
-      <menuList/>
-    </div>
+    <menuList/>
   </header>
 </template>
 
 <script>
-import menuList from '~/components/menu.vue'
+import menuList from '~/components/menuList.vue'
 
 export default {
   components: {
