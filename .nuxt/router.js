@@ -4,7 +4,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const _08dd5ac8 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
+const _b3e2e8f6 = () => import('../pages/recenzje/index.vue' /* webpackChunkName: "pages/recenzje" */).then(m => m.default || m)
 const _69127771 = () => import('../pages/post/_id.vue' /* webpackChunkName: "pages/post-id" */).then(m => m.default || m)
+const _0063ab2d = () => import('../pages/recenzje/_id.vue' /* webpackChunkName: "pages/recenzje-id" */).then(m => m.default || m)
 
 
 
@@ -46,9 +48,19 @@ export function createRouter () {
 			name: "index"
 		},
 		{
+			path: "/recenzje",
+			component: _b3e2e8f6,
+			name: "recenzje"
+		},
+		{
 			path: "/post/:id?",
 			component: _69127771,
 			name: "post-id"
+		},
+		{
+			path: "/recenzje/:id",
+			component: _0063ab2d,
+			name: "recenzje-id"
 		}
     ],
     fallback: false
