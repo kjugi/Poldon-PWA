@@ -1,11 +1,15 @@
 <template>
-  <div class="container">
-    <h1>Posty</h1>
+  <div class="page container">
+    <div class="page__handler">
+      <h1 class="heading">
+        Posty
+      </h1>
+    </div>
 
     <div class="settings">
       <div class="settings__row">
         <a href="#" class="link settings__navigation" @click="setPrevPage()">
-          << Poprzednia strona
+          Poprzednia strona
         </a>
 
         <span class="settings__text">
@@ -15,30 +19,37 @@
         </span>
 
         <a href="#" class="link settings__navigation" @click="setNextPage()">
-          Nastepna strona >>
+          Nastepna strona
         </a>
+      </div>
 
-        <span class="settings__text">
+      <div class="settings__row">
+        <span>
           Postów na stronie: {{ $store.state.postsPerPage }}
         </span>
       </div>
 
-      <ul class="list settings__row">
-        <li v-for="variant in variantsPostsPerPage" class="list__item">
-          <a href="#" class="link list__link" @click="changeVariantPerPage">
-            {{ variant }}
-          </a>
-        </li>
-      </ul>
+      <div class="settings__row">
+        <span class="settings__text">
+          Ma być:
+        </span>
+        <ul class="list">
+          <li v-for="variant in variantsPostsPerPage" class="list__item">
+            <a href="#" class="link list__link" @click="changeVariantPerPage">
+              {{ variant }}
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="posts">
-      <div v-if="!loading" v-for="post in posts" class="post">
+      <div v-if="!loading" v-for="post in posts" class="posts__post">
         <a :href="'/post/' + post.id" class="link post__link">
-          <h2 class="post__title" v-html="post.title.rendered"/>
+          <h2 class="posts__title" v-html="post.title.rendered"/>
         </a>
 
-        <div class="post__excerpt" v-html="post.excerpt.rendered"/>
+        <div class="posts__excerpt" v-html="post.excerpt.rendered"/>
       </div>
     </div>
 

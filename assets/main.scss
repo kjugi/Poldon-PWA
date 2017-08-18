@@ -19,11 +19,41 @@ body {
     h6 {
         margin-top: 0;
         margin-bottom: $base-margin;
+        color: $primary-color;
+    }
+
+    h1 {
+        line-height: 34px;
     }
 
     p {
         margin-top: 0;
         margin-bottom: $base-margin;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    .heading {
+        background-color: $white;
+        margin-bottom: 0;
+        display: inline-block;
+        padding-right: $base-padding;
+        text-transform: uppercase;
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 2px;
+            background-color: $hover-color;
+            z-index: -1;
+        }
     }
 
     .container {
@@ -36,13 +66,17 @@ body {
         background-color: $primary-color;
         padding: $base-padding;
         margin-bottom: $base-margin * 2;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        border-bottom: 2px solid $hover-color;
 
+        &__wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        
         &__logo {
             max-width: 48px;
-            margin-right: $base-margin;
         }
 
         &__link {
@@ -51,6 +85,60 @@ body {
             &:hover {
                 color: $hover-color;
             }
+
+            &--logo {
+                max-height: 48px;
+                margin-right: $base-margin;
+            }
+        }
+    }
+
+    .settings {
+        margin-bottom: $base-margin;
+
+        &__row {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &__text {
+            margin-right: $base-margin;
+            margin-left: $base-margin;
+        }
+    }
+
+    .page {
+        &__handler {
+            position: relative;
+            margin-bottom: $base-margin;
+        }
+    }
+
+    .posts {
+        &__post {
+            padding: $base-margin;
+
+            &:nth-child(odd) {
+                background-color: $white;
+            }
+
+            &:nth-child(even) {
+                background-color: $light-gray;
+            }
+        }
+
+        &__title {
+            transition: $base-transition;
+
+            &:hover {
+                color: $hover-color;
+            }
+        }
+    }
+
+    .post {
+        &__content {
+            overflow: hidden;
         }
     }
 
@@ -58,10 +146,14 @@ body {
         background-color: $primary-color;
         color: $secondary-color;
         padding: $base-padding;
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
+
+        &__wrapper { 
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 0;
+        }
     }
 
     .list {
@@ -80,12 +172,15 @@ body {
         }
     }
 
+    a,
     .link {
         text-decoration: none;
         transition: $base-transition;
+        color: $secondary-color;
 
         &:hover {
             text-decoration: none;
+            color: $hover-color;
         }
     }
 
@@ -112,7 +207,7 @@ body {
 
         &-caption {
             position: absolute;
-            background: rgba($white, 0.6);
+            background-color: rgba($white, 0.6);
             color: $secondary-color;
             padding: 5px;
             width: 100%;

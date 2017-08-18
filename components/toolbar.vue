@@ -1,10 +1,12 @@
 <template>
   <header class="header">
-    <router-link to="/" class="header__link">
+    <div class="container header__wrapper">
+    <router-link to="/" class="header__link--logo">
       <img src="/logo.png" class="header__logo" />
     </router-link>
 
     <menuList/>
+    </div>
   </header>
 </template>
 
