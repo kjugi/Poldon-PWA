@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <toolbar/>
-    <nuxt/>
-    <bottombar/>
-  </div>
+  <transition name="fade" mode="out-in">
+    <div>
+      <toolbar/>
+      <nuxt/>
+      <bottombar/>
+    </div>
+  </transition>
 </template>
 
 <script>

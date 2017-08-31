@@ -1,4 +1,5 @@
 <template>
+<transition name="fade" mode="out-in">
     <div class="post container page">
       <div class="page__handler">
         <h1 class="heading" v-html="post.title.rendered"/>
@@ -6,6 +7,7 @@
 
       <div class="post__content" v-html="post.content.rendered"/>
     </div>
+    </transition>
 </template>
 
 <script>

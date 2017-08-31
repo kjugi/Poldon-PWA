@@ -1,5 +1,8 @@
 @import 'modules/variables';
 
+@import 'modules/loader';
+@import 'modules/transition';
+
 * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -33,6 +36,12 @@ body {
 
     figure {
         margin: 0;
+    }
+
+    img,
+    iframe { 
+        max-width: 100%;
+        display: block;
     }
 
     .heading {
@@ -94,7 +103,9 @@ body {
     }
 
     .settings {
+        padding-bottom: $base-padding;
         margin-bottom: $base-margin;
+        border-bottom: 2px solid $hover-color;
 
         &__row {
             display: flex;
@@ -181,6 +192,15 @@ body {
         &:hover {
             text-decoration: none;
             color: $hover-color;
+        }
+    }
+    
+    .gallery {
+        width: 100%;
+
+        img {
+            height: auto;
+            margin: 0 auto;
         }
     }
 
