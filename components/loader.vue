@@ -1,9 +1,9 @@
 <template>
-    <div class="block" :class="{ show: show }">
+    <div class="block" v-bind:class="{show: show }">
         <svg class="spinner" 
-            width="44px" 
-            height="44px" 
-            viewBox="0 0 44 44"
+             width="44px" 
+             height="44px" 
+             viewBox="0 0 44 44"
         >
             <circle class="path" 
                     fill="none" 
@@ -16,7 +16,7 @@
             </circle>
         </svg>
         
-        <p class="block__error" :class="{ showError: showError }">
+        <p class="block__error" v-bind:class="{ showError: showError }">
             Something goes wrong with loading data :/
         </p>
     </div>
@@ -24,9 +24,23 @@
 
 <script>
 export default {
-  props: [
-    'show',
-    'showError'
-  ],
+  computed: {
+    show() {
+      if (this.$store.state.loading) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    },
+    showError() {
+      if(this.$store.state.laoderError) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
 }
 </script>

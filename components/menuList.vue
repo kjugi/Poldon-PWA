@@ -1,15 +1,27 @@
 <template>
   <ul class="header__menu list">
     <li class="list__item">
-      <router-link to="/" class="link header__link">
+      <a href="/" class="link header__link" v-on:click="loader">
         Posty
-      </router-link>
+      </a>
     </li>
 
     <li class="list__item">
-      <router-link to="/recenzje" class="link header__link">
+      <a href="/recenzje" class="link header__link" v-on:click="loader">
         Recenzje
-      </router-link>
+      </a>
     </li>
   </ul>
 </template>
+
+<script>
+export default {
+  methods: {
+    loader: function(event) {
+      console.log(event);
+      console.log(this.$store.state.loading);
+      this.$store.state.loading = true;
+    }
+  }
+}
+</script>

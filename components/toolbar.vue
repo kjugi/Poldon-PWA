@@ -1,9 +1,9 @@
 <template>
   <header class="header">
     <div class="container header__wrapper">
-    <router-link to="/" class="header__link--logo">
+    <a href="/" class="header__link--logo">
       <img src="/logo.png" class="header__logo" />
-    </router-link>
+    </a>
 
     <menuList/>
     </div>

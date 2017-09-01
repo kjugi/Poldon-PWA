@@ -13,27 +13,34 @@ const store = () => new Vuex.Store({
       '30', 
       '40', 
       '50'
-    ]
+    ],
+    loading: true,
+    loaderError: false,
   },
   mutations: {
     nextPage(state) {
       if (state.page < state.totalPages) {
         state.page++;
+        state.loading = true;
       }
     },
     prevPage(state) {
       if (state.page > 1) {
         state.page--;
+        state.loading = true;
       }
     },
     setPostsPerPage(state, text) {
+      state.loading = false;
       state.postsPerPage = text;
     },
     setTotalPages(state, text) {
+      state.loading = false;
       state.totalPages = text;
     },
     addPosts(state, posts) {
       //empty array to keep new posts
+      state.loading = false;
       state.postsArray = [];
 
       //add posts to array
