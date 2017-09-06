@@ -1,19 +1,7 @@
 <template>
     <div class="settings">
       <div class="settings__row">
-        <a href="#" class="link settings__navigation" @click="setPrevPage()">
-          Poprzednia strona
-        </a>
-
-        <span class="settings__text">
-          Strona: {{ $store.state.page }}
-          z
-          {{ actualTotalPages }}
-        </span>
-
-        <a href="#" class="link settings__navigation" @click="setNextPage()">
-          Nastepna strona
-        </a>
+        <pager/>
       </div>
 
       <div class="settings__row">
@@ -38,13 +26,15 @@
 </template>
 
 <script>
+import pager from '~/components/pager.vue'
+
 export default {
+  components: {
+    pager
+  },
   computed: {
     variantsPostsPerPage() {
       return this.$store.state.variantsPostsPerPage;
-    },
-    actualTotalPages() {
-      return this.$store.state.totalPages;
     }
   },
   methods: {
@@ -62,15 +52,7 @@ export default {
 
       this.$store.commit('setPostsPerPage', content);
       this.$store.dispatch('actionGetPost');
-    },
-    setNextPage() {
-      this.$store.commit('nextPage');
-      this.$store.dispatch('actionGetPost');
-    },
-    setPrevPage() {
-      this.$store.commit('prevPage');
-      this.$store.dispatch('actionGetPost');
-    },
+    }
   }
 }
 </script>

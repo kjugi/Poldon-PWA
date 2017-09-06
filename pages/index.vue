@@ -8,41 +8,30 @@
 
     <settings/>
 
-    <div class="posts">
-      <div v-for="post in posts" class="posts__post">
-        <a :href="'/post/' + post.id" class="link post__link">
-          <h2 class="posts__title" v-html="post.title.rendered"/>
-        </a>
+    <posts/>
 
-        <div class="posts__excerpt" v-html="post.excerpt.rendered"/>
-      </div>
-    </div>
+    <pager/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import pager from '~/components/pager.vue'
+import posts from '~/components/posts.vue'
 import settings from '~/components/settings.vue'
 
 export default {
   components: {
-    settings,
-  },
-  computed: {
-    posts() {
-      if(this.$store.state.postsArray) {
-        return this.$store.state.postsArray;
-      }
-      else {
-        return this.$store.state.laoderError = true;
-      }
-    }
+    pager,
+    posts,
+    settings
   },
   fetch({ store, params }) {
     return axios.get(`http://poldon.pl/wp-json/wp/v2/posts?page=${store.state.page}&per_page=${store.state.postsPerPage}`)
       .then((response) => {
         const numberOfPages = Math.ceil(response.headers['x-wp-total'] / store.state.postsPerPage);
 
+        store.state.postType = 'posts';
         store.commit('addPosts', response.data);
         store.commit('setTotalPages', numberOfPages);
       })

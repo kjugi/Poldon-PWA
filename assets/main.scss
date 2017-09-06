@@ -125,7 +125,13 @@ body {
         }
     }
 
+    .pager {
+        text-align: center;
+    }
+
     .posts {
+        margin-bottom: $base-margin * 2;
+        
         &__post {
             padding: $base-margin;
 

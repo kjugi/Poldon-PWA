@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container header__wrapper">
-    <a href="/" class="header__link--logo">
+    <a href="/" class="header__link--logo" @click="loader">
       <img src="/logo.png" class="header__logo" />
     </a>
 
@@ -16,6 +16,11 @@ import menuList from '~/components/menuList.vue'
 export default {
   components: {
     menuList
+  },
+  methods: {
+    loader: function() {
+      this.$store.state.loading = true;
+    }
   }
 }
 </script>

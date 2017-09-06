@@ -2,8 +2,8 @@
 
 import axios from 'axios'
 
-export async function getPosts(page, perpage) {
-  return axios.get(`http://poldon.pl/wp-json/wp/v2/posts?page=${page}&per_page=${perpage}`)
+export async function getPosts(page, perpage, postType) {
+  return axios.get(`http://poldon.pl/wp-json/wp/v2/${postType}?page=${page}&per_page=${perpage}`)
     .then((response) => {
       return response.data;
     })
@@ -13,9 +13,9 @@ export async function getPosts(page, perpage) {
     });
 }
 
-// export function getPost({ params }) {
-//   axios.get(`http://poldon.pl/wp-json/wp/v2/posts?id=${params.id}`)
-//     .then((response) => {
-//       return response.data;
-//     })
-// }
+export function getPost({ params }) {
+  axios.get(`http://poldon.pl/wp-json/wp/v2/${params.type}?id=${params.id}`)
+    .then((response) => {
+      return response.data;
+    })
+}

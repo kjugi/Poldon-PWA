@@ -1,13 +1,13 @@
 <template>
   <ul class="header__menu list">
     <li class="list__item">
-      <a href="/" class="link header__link" v-on:click="loader">
+      <a href="/" class="link header__link" @click="loader">
         Posty
       </a>
     </li>
 
     <li class="list__item">
-      <a href="/recenzje" class="link header__link" v-on:click="loader">
+      <a href="/recenzje" class="link header__link" @click="loader">
         Recenzje
       </a>
     </li>
@@ -17,9 +17,7 @@
 <script>
 export default {
   methods: {
-    loader: function(event) {
-      console.log(event);
-      console.log(this.$store.state.loading);
+    loader: function() {
       this.$store.state.loading = true;
     }
   }

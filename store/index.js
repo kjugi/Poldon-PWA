@@ -6,6 +6,7 @@ const store = () => new Vuex.Store({
     page: 1,
     postsPerPage: 10,
     totalPages: 1,
+    postType: 'posts',
     postsArray: [],
     variantsPostsPerPage: [
       '10', 
@@ -50,8 +51,9 @@ const store = () => new Vuex.Store({
   actions: {
     async actionGetPost({ state, commit }) {
       const postsPerPage = state.postsPerPage,
-            page = state.page,
-            data = await api.getPosts(page, postsPerPage);
+            page         = state.page,
+            postType     = state.postType,
+            data         = await api.getPosts(page, postsPerPage, postType);
 
       if(data) {
         commit('addPosts', data);
