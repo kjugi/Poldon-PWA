@@ -9,16 +9,20 @@
     <settings/>
 
     <posts/>
+
+    <pager/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import pager from '~/components/pager.vue'
 import posts from '~/components/posts.vue'
 import settings from '~/components/settings.vue'
 
 export default {
   components: {
+    pager,
     posts,
     settings
   },
@@ -27,7 +31,7 @@ export default {
       .then((response) => {
         const numberOfPages = Math.ceil(response.headers['x-wp-total'] / store.state.postsPerPage);
 
-        store.state.postType = 'jetpack-portfolio';
+        store.state.postType = 'recenzje';
         store.commit('addPosts', response.data);
         store.commit('setTotalPages', numberOfPages);
       })

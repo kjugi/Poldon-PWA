@@ -31,7 +31,7 @@ export default {
       .then((response) => {
         const numberOfPages = Math.ceil(response.headers['x-wp-total'] / store.state.postsPerPage);
 
-        store.state.postType = 'posts';
+        store.state.postType = 'post';
         store.commit('addPosts', response.data);
         store.commit('setTotalPages', numberOfPages);
       })

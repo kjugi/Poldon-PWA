@@ -6,7 +6,7 @@ const store = () => new Vuex.Store({
     page: 1,
     postsPerPage: 10,
     totalPages: 1,
-    postType: 'posts',
+    postType: 'post',
     postsArray: [],
     variantsPostsPerPage: [
       '10', 

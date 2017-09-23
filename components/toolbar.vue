@@ -1,11 +1,11 @@
 <template>
   <header class="header">
     <div class="container header__wrapper">
-    <a href="/" class="header__link--logo" @click="loader">
-      <img src="/logo.png" class="header__logo" />
-    </a>
+      <a href="/" class="header__link--logo" @click="loader">
+        <img src="/logo.png" class="header__logo" />
+      </a>
 
-    <menuList/>
+      <menuList/>
     </div>
   </header>
 </template>

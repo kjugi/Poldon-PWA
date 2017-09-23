@@ -28,6 +28,32 @@ let store
 const NUXT = window.__NUXT__ || {}
 NUXT.components = window.__COMPONENTS__ || null
 
+
+// Setup global Vue error handler
+const defaultErrorHandler = Vue.config.errorHandler
+Vue.config.errorHandler = function (err, vm, info) {
+  err.statusCode = err.statusCode || err.name || 'Whoops!'
+  err.message = err.message || err.toString()
+
+  // Show Nuxt Error Page
+  if(vm && vm.$root && vm.$root.$nuxt && vm.$root.$nuxt.error && info !== 'render function') {
+    vm.$root.$nuxt.error(err)
+  }
+
+  // Call other handler if exist
+  if (typeof defaultErrorHandler === 'function') {
+    return defaultErrorHandler(...arguments)
+  }
+
+  // Log to console
+  if (process.env.NODE_ENV !== 'production') {
+    console.error(err)
+  } else {
+    console.error(err.message)
+  }
+}
+
+
 // Create and mount App
 createApp()
 .then(mountApp)
@@ -48,7 +74,7 @@ function componentOption(component, key, ...args) {
 
 function mapTransitions(Components, to, from) {
   const componentTransitions = component => {
-    const transition = componentOption(component, 'transition', to, from)
+    const transition = componentOption(component, 'transition', to, from) || {}
     return (typeof transition === 'string' ? { name: transition } : transition)
   }
 
@@ -108,7 +134,7 @@ async function loadAsyncComponents (to, from, next) {
 
 // Get matched components
 function resolveComponents(router) {
-  const path = getLocation(router.options.base)
+  const path = getLocation(router.options.base, router.options.mode)
 
   return flatMapComponents(router.match(path), (Component, _, match, key, index) => {
     // If component already resolved
@@ -202,7 +228,7 @@ async function render (to, from, next) {
     await callMiddleware.call(this, Components, context, layout)
     if (context._redirected) return
 
-    this.error({ statusCode: 404, message: 'This page could not be found.' })
+    this.error({ statusCode: 404, message: 'This page could not be found' })
     return next()
   }
 
@@ -246,7 +272,7 @@ async function render (to, from, next) {
     })
     // ...If .validate() returned false
     if (!isValid) {
-      this.error({ statusCode: 404, message: 'This page could not be found.' })
+      this.error({ statusCode: 404, message: 'This page could not be found' })
       return next()
     }
 
@@ -254,7 +280,7 @@ async function render (to, from, next) {
     await Promise.all(Components.map((Component, i) => {
       // Check if only children route changed
       Component._path = compile(to.matched[i].path)(to.params)
-      if (!this._hadError && Component._path === _lastPaths[i] && (i + 1) !== Components.length) {
+      if (!this._hadError && this._isMounted && Component._path === _lastPaths[i] && (i + 1) !== Components.length) {
         return Promise.resolve()
       }
 
@@ -431,7 +457,7 @@ function addHotReload ($component, depth) {
       this.$loading.finish && this.$loading.finish()
       router.push(path)
     }
-    let context = getContext({ route: router.currentRoute, store, isClient: true, hotReload: true, next: next.bind(this), error: this.error }, app)
+    let context = getContext({ route: router.currentRoute, store, isClient: true, isHMR: true, next: next.bind(this), error: this.error }, app)
     this.$loading.start && this.$loading.start()
     callMiddleware.call(this, Components, context)
     .then(() => {
