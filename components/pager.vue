@@ -1,6 +1,6 @@
 <template>
   <div class="pager">
-    <a href="#" class="link" @click="setPrevPage()">
+    <a v-if="actualTotalPages > 1" href="#" class="link" @click="setPrevPage()">
       Poprzednia strona
     </a>
 
@@ -10,7 +10,7 @@
       {{ actualTotalPages }}
     </span>
 
-    <a href="#" class="link" @click="setNextPage()">
+    <a v-if="actualTotalPages > 1" href="#" class="link" @click="setNextPage()">
       Nastepna strona
     </a>
   </div>
@@ -26,11 +26,11 @@ export default {
   methods: {
     setNextPage() {
       this.$store.commit('nextPage');
-      this.$store.dispatch('actionGetPost');
+      this.$store.dispatch('actionGetPosts');
     },
     setPrevPage() {
       this.$store.commit('prevPage');
-      this.$store.dispatch('actionGetPost');
+      this.$store.dispatch('actionGetPosts');
     },
   }
 }

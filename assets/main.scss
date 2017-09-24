@@ -38,8 +38,13 @@ body {
         margin: 0;
     }
 
-    img,
-    iframe { 
+    img { 
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    iframe {
         max-width: 100%;
         display: block;
     }
@@ -193,11 +198,11 @@ body {
     .link {
         text-decoration: none;
         transition: $base-transition;
-        color: $secondary-color;
+        color: $hover-color;
 
         &:hover {
             text-decoration: none;
-            color: $hover-color;
+            color: $hover-link-color;
         }
     }
     

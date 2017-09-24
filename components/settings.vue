@@ -51,7 +51,7 @@ export default {
       event.target.classList.add('list__link--active');
 
       this.$store.commit('setPostsPerPage', content);
-      this.$store.dispatch('actionGetPost');
+      this.$store.dispatch('actionGetPosts');
     }
   }
 }

@@ -40,22 +40,27 @@ const store = () => new Vuex.Store({
       state.totalPages = text;
     },
     addPosts(state, posts) {
-      //empty array to keep new posts
-      state.loading = false;
-      state.postsArray = [];
+      if (posts) {
+        //empty array to keep new posts
+        state.loading = false;
+        state.postsArray = [];
 
-      //add posts to array
-      return state.postsArray = posts;
+        //add posts to array
+        return state.postsArray = posts;
+      }
+      else {
+        return redirect('/404');
+      }
     }
   },
   actions: {
-    async actionGetPost({ state, commit }) {
+    async actionGetPosts({ state, commit }) {
       const postsPerPage = state.postsPerPage,
             page         = state.page,
             postType     = state.postType,
             data         = await api.getPosts(page, postsPerPage, postType);
 
-      if(data) {
+      if (data) {
         commit('addPosts', data);
       }
       else {
