@@ -66,6 +66,10 @@ const store = () => new Vuex.Store({
       else {
         commit('addPosts', false);
       }
+    },
+    async actionGetInfo({ state }, data) {
+      state.loading = true;
+      return await api.getInfo(data[0], data[1]);
     }
   },
 })

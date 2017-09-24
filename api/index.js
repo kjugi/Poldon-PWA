@@ -13,8 +13,8 @@ export async function getPosts(page, perpage, postType) {
     });
 }
 
-export function getPost({ params }) {
-  axios.get(`http://poldon.pl/wp-json/wp/v2/${params.type}?id=${params.id}`)
+export async function getInfo(type, query) {
+  return axios.get(`http://poldon.pl/wp-json/wp/v2/${type}/${query}`)
     .then((response) => {
       return response.data;
     })
