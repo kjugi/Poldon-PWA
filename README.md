@@ -3,7 +3,8 @@
 http://poldon.pl
 
 #Stuff TO DO:
-+ Enable loading when gallery loading images
++ Add featured image - done
++ Enable loading when gallery loading images - WIP
 + Don't triger loader on open in new cart
 + Refactor code
 + Add footer

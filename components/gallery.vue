@@ -1,7 +1,7 @@
 <template>
   <div class="gallery">
     <img v-for="image in images"
-          v-bind:src="image.media_details.sizes.medium_large.source_url"
+         v-bind:src="image.media_details.sizes.medium_large.source_url"
     />
   </div>
 </template>
