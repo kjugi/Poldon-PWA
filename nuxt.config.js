@@ -21,5 +21,8 @@ module.exports = {
       src: '~assets/main.scss',
       lang: 'scss'
     }
+  ],
+  plugins: [
+    '~/plugins/vue-async-computed'
   ]
 }
