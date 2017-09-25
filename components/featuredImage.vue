@@ -3,12 +3,17 @@
     <img :src="image" 
          :class="imageclass"
     />
+    <imageLoader loaderclass="block--inside show" spinnerclass="spinner--inside"/>
   </div>
 </template>
 
 <script>
+import imageLoader from '~/components/imageLoader.vue'
 
 export default {
+  components: {
+    imageLoader
+  },
   props: {
     imageclass: {
       type: String
@@ -26,6 +31,7 @@ export default {
             image      = await this.$store.dispatch('actionGetInfo', dataToSend),
             imageLink  = image.media_details.sizes.large.source_url;
 
+      document.querySelector('.block.block--inside').classList.remove('show');
       return imageLink;
     }
   },

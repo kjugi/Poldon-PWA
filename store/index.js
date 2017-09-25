@@ -57,18 +57,18 @@ const store = () => new Vuex.Store({
     async actionGetPosts({ state, commit }) {
       const postsPerPage = state.postsPerPage,
             page         = state.page,
-            postType     = state.postType,
+            postType     = (state.postType === 'recenzje') ? 'jetpack-portfolio' : 'posts',
             data         = await api.getPosts(page, postsPerPage, postType);
 
       if (data) {
         commit('addPosts', data);
       }
       else {
+        state.loaderError = true;
         commit('addPosts', false);
       }
     },
     async actionGetInfo({ state }, data) {
-      state.loading = true;
       return await api.getInfo(data[0], data[1]);
     }
   },
