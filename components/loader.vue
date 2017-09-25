@@ -1,5 +1,5 @@
 <template>
-    <div class="block" v-bind:class="{show: show }">
+    <div class="block" v-bind:class="{ show: show }">
         <svg class="spinner" 
              width="44px" 
              height="44px" 

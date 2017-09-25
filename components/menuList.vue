@@ -17,7 +17,7 @@
 <script>
 export default {
   methods: {
-    loader: function() {
+    loader() {
       this.$store.state.loading = true;
     }
   }

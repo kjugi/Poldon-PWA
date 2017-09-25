@@ -4,7 +4,7 @@
       <toolbar/>
       <nuxt/>
       <bottombar/>
-      <loader/>     
+      <loader/>
     </div>
   </transition>
 </template>

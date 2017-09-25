@@ -18,7 +18,7 @@ export default {
     menuList
   },
   methods: {
-    loader: function() {
+    loader() {
       this.$store.state.loading = true;
     }
   }

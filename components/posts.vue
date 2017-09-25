@@ -13,16 +13,16 @@
 <script>
 export default {
   methods: {
-    postType: function() {
+    postType() {
       return this.$store.state.postType;
     },
-    loader: function() {
+    loader() {
       this.$store.state.loading = true;
     }
   },
   computed: {
     posts() {
-      if(this.$store.state.postsArray) {
+      if (this.$store.state.postsArray) {
         return this.$store.state.postsArray;
       }
       else {
