@@ -72,13 +72,18 @@ body {
 
     .container {
         max-width: 800px;
-        margin: 0px auto $base-margin * 2;
+        margin: 0 auto;
         position: relative;
+        padding: 0 $base-padding;
+
+        @media screen and (min-width: 800px) {
+            padding: 0;
+        }
     }
 
     .header {
         background-color: $primary-color;
-        padding: $base-padding;
+        padding: $base-padding 0;
         margin-bottom: $base-margin * 2;
         border-bottom: 2px solid $hover-color;
 
@@ -86,7 +91,6 @@ body {
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin-bottom: 0;
         }
         
         &__logo {
@@ -103,6 +107,7 @@ body {
             &--logo {
                 max-height: 48px;
                 margin-right: $base-margin;
+                padding: 0;
             }
         }
     }
@@ -127,6 +132,13 @@ body {
         &__handler {
             position: relative;
             margin-bottom: $base-margin;
+        }
+
+        &__error {
+            text-align: center;
+            display: block;
+            margin: ($base-margin * 2) 0;
+            font-size: 18px;
         }
     }
 
@@ -163,6 +175,8 @@ body {
     }
 
     .post {
+        margin-bottom: $base-margin * 2;
+        
         &__content {
             overflow: hidden;
         }
@@ -190,14 +204,43 @@ body {
     .footer {
         background-color: $primary-color;
         color: $secondary-color;
-        padding: $base-padding;
+        padding: $base-padding 0;
 
         &__wrapper { 
             display: flex;
             justify-content: center;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
             margin-bottom: 0;
+        }
+
+        &__info {
+            margin: 0;
+            font-size: 12px;
+            flex-basis: 100%;
+
+            @media screen and (min-width: 480px) {
+                flex-basis: 50%;
+            }
+
+            &:last-child {
+                @media screen and (min-width: 480px) {
+                    text-align: right;
+                }
+            }
+
+            &--right {
+                text-align: right;
+            }
+        }
+
+        &__column {
+            justify-content: center;
+        }
+
+        &__link {
+            display: block;
         }
     }
 
@@ -222,6 +265,7 @@ body {
         text-decoration: none;
         transition: $base-transition;
         color: $hover-color;
+        padding: 12px 0;
 
         &:hover {
             text-decoration: none;
