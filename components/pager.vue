@@ -1,5 +1,5 @@
 <template>
-  <div class="pager">
+  <div class="pager" :class="pagerclass">
     <a v-if="actualTotalPages > 1" href="#" class="link" @click="setPrevPage()">
       Poprzednia strona
     </a>
@@ -18,6 +18,11 @@
 
 <script>
 export default {
+  props: {
+    pagerclass: {
+      type: String
+    }
+  },
   computed: {
     actualTotalPages() {
       return this.$store.state.totalPages;

@@ -10,7 +10,7 @@
 
     <posts/>
 
-    <pager/>
+    <pager pagerclass="pager--bottom"/>
   </div>
 </template>
 

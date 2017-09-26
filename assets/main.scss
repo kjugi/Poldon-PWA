@@ -132,6 +132,10 @@ body {
 
     .pager {
         text-align: center;
+
+        &--bottom {
+            margin-bottom: $base-margin * 2;
+        }
     }
 
     .posts {
