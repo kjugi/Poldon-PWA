@@ -3,6 +3,7 @@
     <img :src="image" 
          :class="imageclass"
     />
+    
     <imageLoader loaderclass="block--inside show" spinnerclass="spinner--inside"/>
   </div>
 </template>
