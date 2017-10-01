@@ -2,7 +2,12 @@
   <div class="post container page">
     <featuredImage :imageid="post.featured_media"
                    imageclass="post__image"
-                   itemclass="post__featured-image"
+                   itemid="featured1"
+                   itemclass="
+                      post__featured-image 
+                      image 
+                      image--placeholder
+                   "
     />
 
     <div class="page__handler">
@@ -11,7 +16,15 @@
 
     <div class="post__content" v-html="post.content.rendered"/>
 
-    <gallery/>
+    <gallery :imageid="post.id"
+             itemid="gallery1" 
+             itemclass="
+                gallery 
+                image 
+                image--placeholder
+             " 
+             imageclass="gallery__image"
+    />
   </div>
 </template>
 

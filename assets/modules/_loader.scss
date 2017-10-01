@@ -14,6 +14,18 @@
         align-items: center;
     }
 
+    &.animation {
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeholderAnimation;
+        animation-timing-function: linear;
+        background: rgba(255, 255, 255, 0.5);
+        background: linear-gradient(to right, transparent 10%, #EEEEEE 20%, transparent 30%);
+        background-size: 200%;
+        background-repeat: no-repeat;
+    }
+
     &__error {
         color: $primary-color;
         font-size: $font-size-standard;
@@ -74,5 +86,14 @@
     100% {
         stroke-dashoffset: 126;
         transform: rotate(450deg);
+    }
+}
+
+@keyframes placeholderAnimation{
+    0%, 50%{
+        background-position: -800px 0
+    }
+    50%, 100%{
+        background-position: 800px 0
     }
 }

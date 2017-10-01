@@ -1,10 +1,10 @@
 <template>
-  <div :class="itemclass" class="post__placeholder">
+  <div :id="itemid" :class="itemclass">
     <img :src="image" 
          :class="imageclass"
     />
     
-    <imageLoader loaderclass="block--inside show" spinnerclass="spinner--inside"/>
+    <imageLoader loaderclass="block--inside show animation" spinnerclass="spinner--inside"/>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ export default {
     imageLoader
   },
   props: {
+    itemid: {
+      type: String
+    },
     imageclass: {
       type: String
     },
@@ -32,16 +35,16 @@ export default {
             image      = await this.$store.dispatch('actionGetInfo', dataToSend),
             imageLink  = image.media_details.sizes.large.source_url;
 
-      document.querySelector('.block.block--inside').classList.remove('show');
+      document.getElementById(this.itemid).querySelector('.block.block--inside').classList.remove('show');
       return imageLink;
     }
   },
   methods: {
     deletePlacholder() {
-      const placeholder = document.querySelector('.post__placeholder');
+      const placeholder = document.getElementById(this.itemid);
 
-      if (placeholder) {
-        placeholder.classList.remove('post__placeholder');
+      if (placeholder.classList.contains('image--placeholder')) {
+        placeholder.classList.remove('image--placeholder');
       }
     }
   },
