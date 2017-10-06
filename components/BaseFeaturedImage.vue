@@ -4,16 +4,19 @@
          :class="imageclass"
     />
     
-    <imageLoader loaderclass="block--inside show animation" spinnerclass="spinner--inside"/>
+    <BaseImageLoader 
+      loaderclass="block--inside show animation" 
+      spinnerclass="spinner--inside"
+    ></BaseImageLoader>
   </div>
 </template>
 
 <script>
-import imageLoader from '~/components/imageLoader.vue'
+import BaseImageLoader from '~/components/BaseImageLoader.vue'
 
 export default {
   components: {
-    imageLoader
+    BaseImageLoader
   },
   props: {
     itemid: {

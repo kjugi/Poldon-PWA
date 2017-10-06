@@ -6,25 +6,25 @@
       </h1>
     </div>
 
-    <settings/>
+    <BaseSettings></BaseSettings>
 
-    <posts/>
+    <BasePosts></BasePosts>
 
-    <pager pagerclass="pager--bottom"/>
+    <BasePager pagerclass="pager--bottom"></BasePager>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import pager from '~/components/pager.vue'
-import posts from '~/components/posts.vue'
-import settings from '~/components/settings.vue'
+import BasePager from '~/components/BasePager.vue'
+import BasePosts from '~/components/BasePosts.vue'
+import BaseSettings from '~/components/BaseSettings.vue'
 
 export default {
   components: {
-    pager,
-    posts,
-    settings
+    BasePager,
+    BasePosts,
+    BaseSettings
   },
   fetch({ store, params }) {
     return axios.get(`http://poldon.pl/wp-json/wp/v2/posts?page=${store.state.page}&per_page=${store.state.postsPerPage}`)

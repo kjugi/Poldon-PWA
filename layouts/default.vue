@@ -1,24 +1,24 @@
 <template>
   <transition>
     <div>
-      <toolbar/>
+      <BaseToolbar></BaseToolbar>
       <nuxt/>
-      <bottombar/>
-      <loader/>
+      <BaseBottomBar></BaseBottomBar>
+      <BaseLoader></BaseLoader>
     </div>
   </transition>
 </template>
 
 <script>
-import bottombar from '~/components/bottombar.vue'
-import loader from '~/components/loader.vue'
-import toolbar from '~/components/toolbar.vue'
+import BaseBottomBar from '~/components/BaseBottomBar.vue'
+import BaseLoader from '~/components/BaseLoader.vue'
+import BaseToolbar from '~/components/BaseToolbar.vue'
 
 export default {
   components: {
-    loader,
-    bottombar,
-    toolbar
+    BaseLoader,
+    BaseBottomBar,
+    BaseToolbar
   },
   mounted() {
     return this.$store.state.loading = false;

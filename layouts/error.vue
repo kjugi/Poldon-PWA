@@ -1,7 +1,7 @@
 <template>
   <transition>
     <div>
-      <toolbar/>
+      <BaseToolbar></BaseToolbar>
 
       <div class="container page">
         <div class="page__handler">
@@ -23,25 +23,25 @@
           </p>
       </div>
 
-      <bottombar/>
-      <loader/>
+      <BaseBottomBar></BaseBottomBar>
+      <BaseLoader></BaseLoader>
     </div>
   </transition>
 </template>
 
 <script>
-import toolbar from '~/components/toolbar.vue'
-import bottombar from '~/components/bottombar.vue'
-import loader from '~/components/loader.vue'
+import BaseToolbar from '~/components/BaseToolbar.vue'
+import BaseBottomBar from '~/components/BaseBottomBar.vue'
+import BaseLoader from '~/components/BaseLoader.vue'
 
 export default {
   props: [
     'error'
   ],
   components: {
-    bottombar,
-    toolbar,
-    loader
+    BaseBottomBar,
+    BaseToolbar,
+    BaseLoader
   },
   mounted() {
     return this.$store.state.loading = false;

@@ -1,7 +1,7 @@
 <template>
     <div class="settings">
       <div class="settings__row">
-        <pager/>
+        <BasePager></BasePager>
       </div>
 
       <div class="settings__row">
@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import pager from '~/components/pager.vue'
+import BasePager from '~/components/BasePager.vue'
 
 export default {
   components: {
-    pager
+    BasePager
   },
   computed: {
     variantsPostsPerPage() {

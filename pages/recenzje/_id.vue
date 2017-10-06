@@ -1,14 +1,15 @@
 <template>
   <div class="post container page">
-    <featuredImage :imageid="post.featured_media"
-                   imageclass="post__image"
-                   itemid="featured1"
-                   itemclass="
-                      post__featured-image 
-                      image 
-                      image--placeholder
-                   "
-    />
+    <BaseFeaturedImage 
+      :imageid="post.featured_media"
+      imageclass="post__image"
+      itemid="featured1"
+      itemclass="
+        post__featured-image 
+        image 
+        image--placeholder
+      "
+    ></BaseFeaturedImage>
 
     <div class="page__handler">
       <h1 class="heading" v-html="post.title.rendered"/>
@@ -16,27 +17,28 @@
 
     <div class="post__content" v-html="post.content.rendered"/>
 
-    <gallery :imageid="post.id"
-             itemid="gallery1" 
-             itemclass="
-                gallery 
-                image 
-                image--placeholder
-             " 
-             imageclass="gallery__image"
-    />
+    <BaseGallery 
+      :imageid="post.id"
+      itemid="gallery1" 
+      itemclass="
+        gallery 
+        image 
+        image--placeholder
+      " 
+      imageclass="gallery__image"
+    ></BaseGallery>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import featuredImage from '~/components/featuredImage.vue'
-import gallery from '~/components/gallery.vue'
+import BaseFeaturedImage from '~/components/BaseFeaturedImage.vue'
+import BaseGallery from '~/components/BaseGallery.vue'
 
 export default {
   components: {
-    featuredImage,
-    gallery
+    BaseFeaturedImage,
+    BaseGallery
   },
   async asyncData ({ params }) {
     const { data } = await axios.get(`http://poldon.pl/wp-json/wp/v2/jetpack-portfolio/${params.id}`)

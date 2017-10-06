@@ -5,17 +5,17 @@
         <img src="/logo.png" class="header__logo" />
       </a>
 
-      <menuList/>
+      <BaseMenuList></BaseMenuList>
     </div>
   </header>
 </template>
 
 <script>
-import menuList from '~/components/menuList.vue'
+import BaseMenuList from '~/components/BaseMenuList.vue'
 
 export default {
   components: {
-    menuList
+    BaseMenuList
   },
   methods: {
     loader() {
