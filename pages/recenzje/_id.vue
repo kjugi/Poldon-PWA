@@ -45,6 +45,9 @@ export default {
     return {
       post: data
     }
+  },
+  validate ({ params }) {
+    return /^\d+$/.test(params.id)
   }
 }
 </script>
