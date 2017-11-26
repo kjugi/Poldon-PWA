@@ -10,7 +10,7 @@
 
     <BasePosts></BasePosts>
 
-    <BasePager pagerclass="pager--bottom"></BasePager>
+    <BasePager pager-class="pager--bottom"></BasePager>
   </div>
 </template>
 

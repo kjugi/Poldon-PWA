@@ -1,6 +1,11 @@
 <template>
-  <div class="pager" :class="pagerclass">
-    <a v-if="actualTotalPages > 1" href="#" class="link" @click="setPrevPage()">
+  <div class="pager" :class="pagerClass">
+    <a
+      v-if="actualTotalPages > 1"
+      href="#"
+      class="pager__link"
+      @click="setPrevPage()"
+    >
       Poprzednia strona
     </a>
 
@@ -10,7 +15,12 @@
       {{ actualTotalPages }}
     </span>
 
-    <a v-if="actualTotalPages > 1" href="#" class="link" @click="setNextPage()">
+    <a
+      v-if="actualTotalPages > 1"
+      href="#"
+      class="pager__link"
+      @click="setNextPage()"
+    >
       Nastepna strona
     </a>
   </div>
@@ -19,7 +29,7 @@
 <script>
 export default {
   props: {
-    pagerclass: {
+    pagerClass: {
       type: String
     }
   },

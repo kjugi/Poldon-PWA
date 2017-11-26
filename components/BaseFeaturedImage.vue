@@ -1,12 +1,13 @@
 <template>
-  <div :id="itemid" :class="itemclass">
-    <img :src="image" 
-         :class="imageclass"
+  <div :id="itemId" :class="itemClass">
+    <img
+      :src="image"
+      :class="imageClass"
     />
-    
-    <BaseImageLoader 
-      loaderclass="block--inside show animation" 
-      spinnerclass="spinner--inside"
+
+    <BaseImageLoader
+      loader-class="block--inside show animation"
+      spinner-class="spinner--inside"
     ></BaseImageLoader>
   </div>
 </template>
@@ -19,32 +20,32 @@ export default {
     BaseImageLoader
   },
   props: {
-    itemid: {
+    itemId: {
       type: String
     },
-    imageclass: {
+    imageClass: {
       type: String
     },
-    itemclass: {
+    itemClass: {
       type: String
     },
-    imageid: {
+    imageId: {
       type: Number
     }
   },
   asyncComputed: {
     async image() {
-      const dataToSend = ['media', this.imageid],
+      const dataToSend = ['media', this.imageId],
             image      = await this.$store.dispatch('actionGetInfo', dataToSend),
             imageLink  = image.media_details.sizes.large.source_url;
 
-      document.getElementById(this.itemid).querySelector('.block.block--inside').classList.remove('show');
+      document.getElementById(this.itemId).querySelector('.block.block--inside').classList.remove('show');
       return imageLink;
     }
   },
   methods: {
     deletePlacholder() {
-      const placeholder = document.getElementById(this.itemid);
+      const placeholder = document.getElementById(this.itemId);
 
       if (placeholder.classList.contains('image--placeholder')) {
         placeholder.classList.remove('image--placeholder');

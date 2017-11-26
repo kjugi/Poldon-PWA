@@ -1,13 +1,14 @@
 <template>
-  <div :id="itemid" :class="itemclass">
-    <img v-for="image in images"
-         v-bind:src="image.media_details.sizes.medium_large.source_url"
-         :class="imageclass"
+  <div :id="itemId" :class="itemClass">
+    <img
+      v-for="image in images"
+      v-bind:src="image.media_details.sizes.medium_large.source_url"
+      :class="imageClass"
     />
 
-    <BaseImageLoader 
-      loaderclass="block--inside show animation" 
-      spinnerclass="spinner--inside"
+    <BaseImageLoader
+      loader-class="block--inside show animation"
+      spinner-class="spinner--inside"
     ></BaseImageLoader>
   </div>
 </template>
@@ -20,31 +21,31 @@ export default {
     BaseImageLoader
   },
   props: {
-    itemid: {
+    itemId: {
       type: String
     },
-    imageid: {
+    imageId: {
       type: Number
     },
-    itemclass: {
+    itemClass: {
       type: String
     },
-    imageclass: {
+    imageClass: {
       type: String
     }
   },
   asyncComputed: {
     async images() {
-      const dataToSend = ['media', '?parent='+this.imageid],
+      const dataToSend = ['media', '?parent='+this.imageId],
             images     = await this.$store.dispatch('actionGetInfo', dataToSend);
 
-      document.getElementById(this.itemid).querySelector('.block.block--inside').classList.remove('show');
+      document.getElementById(this.itemId).querySelector('.block.block--inside').classList.remove('show');
       return images;
     }
   },
   methods: {
     deletePlacholder() {
-      const placeholder = document.getElementById(this.itemid);
+      const placeholder = document.getElementById(this.itemId);
 
       if (placeholder) {
         placeholder.classList.remove('image');

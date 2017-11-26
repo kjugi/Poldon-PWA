@@ -1,31 +1,31 @@
 <template>
   <div class="post container page">
-    <BaseFeaturedImage 
-      :imageid="post.featured_media"
-      imageclass="post__image"
-      itemid="featured1"
-      itemclass="
-        post__featured-image 
-        image 
+    <BaseFeaturedImage
+      :image-id="post.featured_media"
+      image-class="post__image"
+      item-id="featured1"
+      item-class="
+        post__featured-image
+        image
         image--placeholder
       "
     ></BaseFeaturedImage>
 
     <div class="page__handler">
-      <h1 class="heading" v-html="post.title.rendered"/>
+      <h1 class="heading post__title" v-html="post.title.rendered"/>
     </div>
 
     <div class="post__content" v-html="post.content.rendered"/>
 
-    <BaseGallery 
-      :imageid="post.id"
-      itemid="gallery1" 
-      itemclass="
-        gallery 
-        image 
+    <BaseGallery
+      :image-id="post.id"
+      item-id="gallery1"
+      item-class="
+        gallery
+        image
         image--placeholder
-      " 
-      imageclass="gallery__image"
+      "
+      image-class="gallery__image"
     ></BaseGallery>
   </div>
 </template>
