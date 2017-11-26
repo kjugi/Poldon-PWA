@@ -1,7 +1,11 @@
 <template>
   <div class="posts">
     <div v-for="post in posts" class="posts__post">
-      <a :href="'/'+ postType() + '/' + post.id" class="link post__link" @click="loader">
+      <a
+        :href="'/'+ postType() + '/' + post.id"
+        class="link post__link"
+        @click="loader"
+      >
         <h2 class="posts__title" v-html="post.title.rendered"/>
       </a>
 

@@ -9,10 +9,10 @@ const store = () => new Vuex.Store({
     postType: 'post',
     postsArray: [],
     variantsPostsPerPage: [
-      '10', 
-      '20', 
-      '30', 
-      '40', 
+      '10',
+      '20',
+      '30',
+      '40',
       '50'
     ],
     loading: true,
@@ -41,11 +41,11 @@ const store = () => new Vuex.Store({
     },
     addPosts(state, posts) {
       if (posts) {
-        //empty array to keep new posts
+        // empty array to keep new posts
         state.loading = false;
         state.postsArray = [];
 
-        //add posts to array
+        // add posts to array
         return state.postsArray = posts;
       }
       else {
@@ -71,7 +71,7 @@ const store = () => new Vuex.Store({
     async actionGetInfo({ state }, data) {
       return await api.getInfo(data[0], data[1]);
     }
-  },
+  }
 })
 
 export default store

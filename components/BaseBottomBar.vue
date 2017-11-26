@@ -9,23 +9,29 @@
         <p class="footer__info footer__info--right">
           Created by Filip Kudła
 
-          <a href="https://github.com/kjugi/" target="_blank" class="footer__link">
+          <a 
+            href="https://github.com/kjugi/" 
+            target="_blank" 
+            class="footer__link"
+          >
             My Github
           </a>
         </p>
       </div>
 
       <div class="footer__column list">
-        <a href="https://www.facebook.com/poldonpl/" 
-           target="_blank" 
-           class="list__item"
+        <a 
+          href="https://www.facebook.com/poldonpl/" 
+          target="_blank" 
+          class="list__item"
         >
           facebook
         </a>
 
-        <a href="https://www.instagram.com/poldon.pl/" 
-           target="_blank" 
-           class="list__item"
+        <a 
+          href="https://www.instagram.com/poldon.pl/" 
+          target="_blank" 
+          class="list__item"
         >
           insta
         </a>

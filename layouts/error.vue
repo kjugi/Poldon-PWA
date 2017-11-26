@@ -14,13 +14,13 @@
           </h1>
         </div>
 
-          <nuxt-link v-if="error.statusCode === 404" class="page__error" to="/">
-            Jedyna droga do wyboru teraz, to powrót do strony głównej.
-          </nuxt-link>
+        <nuxt-link v-if="error.statusCode === 404" class="page__error" to="/">
+          Jedyna droga do wyboru teraz, to powrót do strony głównej.
+        </nuxt-link>
 
-          <p v-else class="page__error">
-            To juz jest koniec.
-          </p>
+        <p v-else class="page__error">
+          To juz jest koniec.
+        </p>
       </div>
 
       <BaseBottomBar></BaseBottomBar>

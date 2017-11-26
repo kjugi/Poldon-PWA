@@ -39,6 +39,6 @@ export default {
         const response = false;
         store.commit('addPosts', response);
       });
-  }  
+  }
 }
 </script>
