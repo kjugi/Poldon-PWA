@@ -1,0 +1,347 @@
+@import 'modules/variables';
+
+@import 'modules/loader';
+@import 'modules/transition';
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif, Arial;
+    font-size: $font-size-standard;
+    line-height: $line-height-standard;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0;
+        margin-bottom: $base-margin;
+        color: $primary-color;
+    }
+
+    h1 {
+        line-height: 34px;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: $base-margin;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    iframe {
+        display: block;
+        max-width: 100%;
+    }
+
+    .heading {
+        display: inline-block;
+        padding-right: $base-padding;
+        margin-bottom: 0;
+        background-color: $white;
+        text-transform: uppercase;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+            height: 2px;
+            background-color: $hover-color;
+            z-index: -1;
+        }
+    }
+
+    .container {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 $base-padding;
+
+        @media screen and (min-width: 800px) {
+            padding: 0;
+        }
+    }
+
+    .image {
+        position: relative;
+        margin-bottom: $base-margin;
+        background: $light-gray;
+
+        &--placeholder {
+            width: 100%;
+            height: 50vw;
+
+            @media screen and (min-width: 800px) {
+                height: 400px;
+            }
+        }
+    }
+
+    .header {
+        padding: $base-padding 0;
+        margin-bottom: $base-margin * 2;
+        background-color: $primary-color;
+        border-bottom: 2px solid $hover-color;
+
+        &__wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &__logo {
+            max-width: 48px;
+        }
+
+        &__link {
+            color: $secondary-color;
+
+            &:hover {
+                color: $hover-color;
+            }
+
+            &--logo {
+                max-height: 48px;
+                margin-right: $base-margin;
+                padding: 0;
+            }
+        }
+    }
+
+    .settings {
+        padding-bottom: $base-padding;
+        margin-bottom: $base-margin;
+        border-bottom: 2px solid $hover-color;
+
+        &__row {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        &__text {
+            margin-right: $base-margin;
+            margin-left: $base-margin;
+        }
+    }
+
+    .page {
+        &__handler {
+            position: relative;
+        }
+
+        &__error {
+            display: block;
+            margin: ($base-margin * 2) 0;
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+
+    .pager {
+        display: flex;
+        align-items: center;
+
+        &--bottom {
+            justify-content: center;
+            margin-bottom: $base-margin * 2;
+        }
+
+        &__link {
+            display: block;
+        }
+    }
+
+    .posts {
+        margin-bottom: $base-margin * 2;
+
+        &__post {
+            padding: $base-margin;
+
+            &:nth-child(odd) {
+                background-color: $white;
+            }
+
+            &:nth-child(even) {
+                background-color: $light-gray;
+            }
+        }
+
+        &__title {
+            margin-bottom: 0;
+            transition: $base-transition;
+
+            &:hover {
+                color: $hover-color;
+            }
+        }
+    }
+
+    .post {
+        margin-bottom: $base-margin * 2;
+
+        &__content {
+            overflow: hidden;
+        }
+
+        &__title {
+            margin-bottom: $base-margin;
+        }
+
+        &__image {
+            margin: 0 auto;
+        }
+
+        &__link {
+            display: block;
+        }
+    }
+
+    .footer {
+        padding: $base-padding 0;
+        background-color: $primary-color;
+        color: $secondary-color;
+
+        &__wrapper {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        &__info {
+            margin: 0;
+            font-size: 12px;
+            flex-basis: 100%;
+
+            @media screen and (min-width: 480px) {
+                flex-basis: 50%;
+            }
+
+            &:last-child {
+                @media screen and (min-width: 480px) {
+                    text-align: right;
+                }
+            }
+
+            &--right {
+                text-align: right;
+            }
+        }
+
+        &__column {
+            justify-content: center;
+        }
+
+        &__link {
+            display: block;
+        }
+    }
+
+    .list {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        &__item {
+            margin-right: $base-margin;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &__link {
+            display: block;
+        }
+    }
+
+    a,
+    .link {
+        padding: 16px 0;
+        color: $hover-color;
+        text-decoration: none;
+        transition: $base-transition;
+
+        &:hover {
+            color: $hover-link-color;
+            text-decoration: none;
+        }
+    }
+
+    .gallery {
+        position: relative;
+        width: 100%;
+
+        &__image,
+        img {
+            height: auto;
+            margin: 0 auto;
+        }
+    }
+
+    .tiled-gallery {
+        clear: both;
+        margin: 0 0 $base-margin;
+        overflow: hidden;
+
+        .gallery-row {
+            overflow: hidden;
+        }
+
+        .gallery-group {
+            position: relative;
+            float: left;
+        }
+    }
+
+    .tiled-gallery-item {
+        position: relative;
+        width: inherit;
+        float: left;
+        margin: 0;
+
+        img {
+            max-width: 100%;
+            padding: 0;
+            background: 0 0;
+            border: 0;
+            box-shadow: none;
+            vertical-align: middle;
+        }
+    }
+
+    .tiled-gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 5px;
+        width: 100%;
+        background-color: rgba($white, 0.6);
+        color: $secondary-color;
+        font-size: $font-size-gallery;
+    }
+}
