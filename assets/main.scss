@@ -203,7 +203,8 @@ body {
             overflow: hidden;
         }
 
-        &__title {
+        &__handler {
+            position: relative;
             margin-bottom: $base-margin;
         }
 

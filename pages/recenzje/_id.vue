@@ -11,7 +11,7 @@
       "
     ></BaseFeaturedImage>
 
-    <div class="page__handler">
+    <div class="post__handler">
       <h1 class="heading post__title" v-html="post.title.rendered"/>
     </div>
 
