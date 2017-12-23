@@ -24,7 +24,6 @@
       </div>
 
       <BaseBottomBar></BaseBottomBar>
-      <BaseLoader></BaseLoader>
     </div>
   </transition>
 </template>
@@ -32,7 +31,6 @@
 <script>
 import BaseToolbar from '~/components/BaseToolbar.vue'
 import BaseBottomBar from '~/components/BaseBottomBar.vue'
-import BaseLoader from '~/components/BaseLoader.vue'
 
 export default {
   props: [
@@ -40,11 +38,7 @@ export default {
   ],
   components: {
     BaseBottomBar,
-    BaseToolbar,
-    BaseLoader
-  },
-  mounted() {
-    return this.$store.state.loading = false;
+    BaseToolbar
   }
 }
 </script>

@@ -14,9 +14,7 @@ const store = () => new Vuex.Store({
       '30',
       '40',
       '50'
-    ],
-    loading: true,
-    loaderError: false,
+    ]
   },
   mutations: {
     nextPage(state) {
@@ -42,7 +40,6 @@ const store = () => new Vuex.Store({
     addPosts(state, posts) {
       if (posts) {
         // empty array to keep new posts
-        state.loading = false;
         state.postsArray = [];
 
         // add posts to array
@@ -64,7 +61,6 @@ const store = () => new Vuex.Store({
         commit('addPosts', data);
       }
       else {
-        state.loaderError = true;
         commit('addPosts', false);
       }
     },
