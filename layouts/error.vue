@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import BaseToolbar from '~/components/BaseToolbar.vue'
-import BaseBottomBar from '~/components/BaseBottomBar.vue'
+import TheFooter from '~/components/TheFooter.vue'
+import TheHeader from '~/components/TheHeader.vue'
 
 export default {
   props: {
@@ -33,8 +33,8 @@ export default {
     }
   },
   components: {
-    BaseBottomBar,
-    BaseToolbar
+    TheFooter,
+    TheHeader
   }
 }
 </script>

@@ -1,21 +1,21 @@
 <template>
   <transition>
     <div>
-      <BaseToolbar></BaseToolbar>
+      <TheHeader></TheHeader>
       <nuxt/>
-      <BaseBottomBar></BaseBottomBar>
+      <TheFooter></TheFooter>
     </div>
   </transition>
 </template>
 
 <script>
-import BaseBottomBar from '~/components/BaseBottomBar.vue'
-import BaseToolbar from '~/components/BaseToolbar.vue'
+import TheFooter from '~/components/TheFooter.vue'
+import TheHeader from '~/components/TheHeader.vue'
 
 export default {
   components: {
-    BaseBottomBar,
-    BaseToolbar
+    TheFooter,
+    TheHeader
   }
 }
 </script>
