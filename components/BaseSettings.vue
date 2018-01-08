@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     changeVariantPerPage(event) {
-      const allLinks = document.querySelectorAll('.list__link'),
+      const allLinks = this.$el.querySelectorAll('.list__link'),
             content  = event.target.textContent.trim();
 
       allLinks.forEach(link => {

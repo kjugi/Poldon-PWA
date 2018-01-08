@@ -39,18 +39,14 @@ export default {
       const dataToSend = ['media', '?parent='+this.imageId],
             images     = await this.$store.dispatch('actionGetInfo', dataToSend);
 
-      document.getElementById(this.itemId).querySelector('.block.block--inside').classList.remove('show');
+      this.$el.querySelector('.block.block--inside').classList.remove('show');
       return images;
     }
   },
   methods: {
     deletePlacholder() {
-      const placeholder = document.getElementById(this.itemId);
-
-      if (placeholder) {
-        placeholder.classList.remove('image');
-        placeholder.classList.remove('image--placeholder');
-      }
+      this.$el.classList.remove('image');
+      this.$el.classList.remove('image--placeholder');
     }
   },
   updated() {
