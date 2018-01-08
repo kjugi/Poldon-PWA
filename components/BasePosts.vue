@@ -1,6 +1,10 @@
 <template>
   <div class="posts">
-    <div v-for="post in posts" class="posts__post">
+    <div
+      v-for="post in posts"
+      v-bind:key="post.id"
+      class="posts__post"
+    >
       <a
         :href="'/'+ postType() + '/' + post.id"
         class="link post__link"

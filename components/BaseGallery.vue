@@ -3,6 +3,7 @@
     <img
       v-for="image in images"
       v-bind:src="image.media_details.sizes.medium_large.source_url"
+      v-bind:key="image.id"
       :class="imageClass"
     />
 

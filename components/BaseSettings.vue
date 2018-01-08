@@ -15,7 +15,11 @@
           Ma być:
         </span>
         <ul class="list">
-          <li v-for="variant in variantsPostsPerPage" class="list__item">
+          <li
+            v-for="variant in variantsPostsPerPage"
+            v-bind:key="variant"
+            class="list__item"
+          >
             <a href="#" class="link list__link" @click="changeVariantPerPage">
               {{ variant }}
             </a>
