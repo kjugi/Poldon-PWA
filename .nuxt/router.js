@@ -3,10 +3,10 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _9d7fdf6a = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
-const _aa4e7a94 = () => import('../pages/recenzje/index.vue' /* webpackChunkName: "pages/recenzje/index" */).then(m => m.default || m)
-const _02de2762 = () => import('../pages/post/_id.vue' /* webpackChunkName: "pages/post/_id" */).then(m => m.default || m)
-const _6c03fa9e = () => import('../pages/recenzje/_id.vue' /* webpackChunkName: "pages/recenzje/_id" */).then(m => m.default || m)
+const _704d7741 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
+const _e7de5f00 = () => import('../pages/recenzje/index.vue' /* webpackChunkName: "pages/recenzje/index" */).then(m => m.default || m)
+const _090256a8 = () => import('../pages/post/_id.vue' /* webpackChunkName: "pages/post/_id" */).then(m => m.default || m)
+const _c2ce1a30 = () => import('../pages/recenzje/_id.vue' /* webpackChunkName: "pages/recenzje/_id" */).then(m => m.default || m)
 
 
 
@@ -44,25 +44,27 @@ export function createRouter () {
     routes: [
 		{
 			path: "/",
-			component: _9d7fdf6a,
+			component: _704d7741,
 			name: "index"
 		},
 		{
 			path: "/recenzje",
-			component: _aa4e7a94,
+			component: _e7de5f00,
 			name: "recenzje"
 		},
 		{
 			path: "/post/:id?",
-			component: _02de2762,
+			component: _090256a8,
 			name: "post-id"
 		},
 		{
 			path: "/recenzje/:id",
-			component: _6c03fa9e,
+			component: _c2ce1a30,
 			name: "recenzje-id"
 		}
     ],
+    
+    
     fallback: false
   })
 }
