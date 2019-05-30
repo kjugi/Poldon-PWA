@@ -4,7 +4,7 @@
         "dev": "nuxt"
     },
     "devDependencies": {
-        "axios": "^0.16.2",
+        "axios": "^0.19.0",
         "node-sass": "^4.5.3",
         "nuxt": "^1.0.0-rc11",
         "sass-loader": "^6.0.6",
